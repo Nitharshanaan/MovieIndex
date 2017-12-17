@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MovieIndex</string>
+    <string name="highest_rated">Highest Rated</string>
+    <string name="most_popular">Most Popular</string>
+    <string name="error_message">Failed to get results. Please try again.</string>
+    <string name="popularity">popularity.desc</string>
+    <string name="average_rated">vote_average.desc</string>
+</resources>
