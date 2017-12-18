@@ -23,12 +23,11 @@ import java.util.ArrayList;
 
 public class IndexMain extends AppCompatActivity {
 
+    public static final String API_KEY = BuildConfig.MOVIE_DB_API_KEY;
     URL baseUrl;
     private RecyclerView mRecyclerView;
     private TextView mErrorMessageDisplay;
     private ImageView mErrorImageDisplay;
-
-    public static final String API_KEY = " ";
     private String loadParam;
 
     private SwipeRefreshLayout resultSwipeRefreshLayout;
