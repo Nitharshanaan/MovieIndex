@@ -80,6 +80,7 @@ public class IndexMain extends AppCompatActivity {
 
     }
 
+
     private void loadMovie(String s) {
         baseUrl = NetworkUtil.buildUrl(s, API_KEY);
         new MovieQueryTask().execute(baseUrl);

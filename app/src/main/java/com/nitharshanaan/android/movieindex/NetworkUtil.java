@@ -22,17 +22,15 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class NetworkUtil {
 
-    public static final String BASE_URL = "https://api.themoviedb.org/3/discover/movie";
     public static final String QUERY_KEY = "api_key";
     public static final String QUERY_SORT = "sort_by";
 
     public NetworkUtil() {
     }
 
-    public static URL buildUrl(String condition, String api) {
+    public static URL buildUrl(String baseUrl, String api) {
 
-        Uri uri = Uri.parse(BASE_URL).buildUpon()
-                .appendQueryParameter(QUERY_SORT, condition)
+        Uri uri = Uri.parse(baseUrl).buildUpon()
                 .appendQueryParameter(QUERY_KEY, api)
                 .build();
 

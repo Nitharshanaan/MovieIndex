@@ -24,32 +24,32 @@ public class Movie implements Parcelable {
             return new Movie[size];
         }
     };
-    public String TITLE;
-    public String LANGUAGE;
-    public String THUMBNAIL_URL;
-    public String RATING;
-    public String OVERVIEW;
-    public String RELEASE_DATE;
-    public String BACKDROP;
+    public String title;
+    public String language;
+    public String thumbnailUrl;
+    public String rating;
+    public String overview;
+    public String releaseDate;
+    public String backdrop;
 
-    public Movie(String TITLE, String LANGUAGE, String THUMBNAIL_URL, String RATING, String OVERVIEW, String RELEASE_DATE, String BACKDROP) {
-        this.TITLE = TITLE;
-        this.LANGUAGE = LANGUAGE;
-        this.THUMBNAIL_URL = THUMBNAIL_URL;
-        this.RATING = RATING;
-        this.OVERVIEW = OVERVIEW;
-        this.RELEASE_DATE = RELEASE_DATE;
-        this.BACKDROP = BACKDROP;
+    public Movie(String title, String language, String thumbnailUrl, String rating, String overview, String releaseDate, String backdrop) {
+        this.title = title;
+        this.language = language;
+        this.thumbnailUrl = thumbnailUrl;
+        this.rating = rating;
+        this.overview = overview;
+        this.releaseDate = releaseDate;
+        this.backdrop = backdrop;
     }
 
     protected Movie(Parcel in) {
-        TITLE = in.readString();
-        LANGUAGE = in.readString();
-        THUMBNAIL_URL = in.readString();
-        RATING = in.readString();
-        OVERVIEW = in.readString();
-        RELEASE_DATE = in.readString();
-        BACKDROP = in.readString();
+        title = in.readString();
+        language = in.readString();
+        thumbnailUrl = in.readString();
+        rating = in.readString();
+        overview = in.readString();
+        releaseDate = in.readString();
+        backdrop = in.readString();
     }
 
     @BindingAdapter({"android:imageUrl"})
@@ -72,12 +72,12 @@ public class Movie implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(TITLE);
-        parcel.writeString(LANGUAGE);
-        parcel.writeString(THUMBNAIL_URL);
-        parcel.writeString(RATING);
-        parcel.writeString(OVERVIEW);
-        parcel.writeString(RELEASE_DATE);
-        parcel.writeString(BACKDROP);
+        parcel.writeString(title);
+        parcel.writeString(language);
+        parcel.writeString(thumbnailUrl);
+        parcel.writeString(rating);
+        parcel.writeString(overview);
+        parcel.writeString(releaseDate);
+        parcel.writeString(backdrop);
     }
 }

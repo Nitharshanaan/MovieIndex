@@ -40,10 +40,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     public void onBindViewHolder(MovieViewHolder holder, int position) {
 
         Movie movie = movieList.get(position);
-        holder.title.setText(movie.TITLE);
-        holder.rating.setText(movie.RATING);
+        holder.title.setText(movie.title);
+        holder.rating.setText(movie.rating);
 
-        Glide.with(mContext).load(movie.THUMBNAIL_URL).into(holder.thumbnail);
+        Glide.with(mContext).load(movie.thumbnailUrl).into(holder.thumbnail);
 
     }
 

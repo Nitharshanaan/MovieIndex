@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MovieIndex</string>
-    <string name="highest_rated">Highest Rated</string>
+    <string name="highest_rated">Top Rated</string>
     <string name="most_popular">Most Popular</string>
     <string name="error_message">Failed to get results. Please try again.</string>
-    <string name="popularity">popularity.desc</string>
-    <string name="average_rated">vote_average.desc</string>
+    <string name="popularity">https://api.themoviedb.org/3/movie/popular</string>
+    <string name="average_rated">https://api.themoviedb.org/3/movie/top_rated</string>
 </resources>

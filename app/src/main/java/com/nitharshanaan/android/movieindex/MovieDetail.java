@@ -29,7 +29,7 @@ public class MovieDetail extends AppCompatActivity {
 
 
         try {
-            Glide.with(this).load(movie.BACKDROP).into((ImageView) findViewById(R.id.backdrop));
+            Glide.with(this).load(movie.backdrop).into((ImageView) findViewById(R.id.backdrop));
         } catch (Exception e) {
             e.printStackTrace();
         }

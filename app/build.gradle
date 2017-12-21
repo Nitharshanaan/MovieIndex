@@ -14,7 +14,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "MOVIE_DB_API_KEY", "\"TMDB_API_KEY\""
+        buildConfigField "String", "MOVIE_DB_API_KEY", "\"08fbc9ea34c7de7185fd100221e5ff38\""
     }
     buildTypes {
         release {
