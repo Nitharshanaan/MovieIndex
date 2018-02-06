@@ -1,0 +1,37 @@
+package com.nitharshanaan.android.movieindex.data;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+/**
+ * Created by nitha on 1/9/2018.
+ */
+
+public class MovieDbHelper extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = "movies.db";
+    private static final int DATABASE_VERSION = 1;
+
+    private final String SQL_CREATE_COUNTRY_TABLE
+            = "CREATE TABLE " + MovieContract.MovieEntry.TABLE_NAME
+            + " (" + MovieContract.MovieEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + MovieContract.MovieEntry.COLUMN_MOVIEID + " INTEGER NOT NULL, "
+            + MovieContract.MovieEntry.COLUMN_TITLE + " TEXT"
+            + ");";
+
+    public MovieDbHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(SQL_CREATE_COUNTRY_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + MovieContract.MovieEntry.TABLE_NAME);
+        onCreate(db);
+    }
+}
