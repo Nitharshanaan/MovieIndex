@@ -3,6 +3,14 @@
     <string name="highest_rated">Top Rated</string>
     <string name="most_popular">Most Popular</string>
     <string name="error_message">Failed to get results. Please try again.</string>
-    <string name="popularity">https://api.themoviedb.org/3/movie/popular</string>
-    <string name="average_rated">https://api.themoviedb.org/3/movie/top_rated</string>
+    <string name="popularity">popular</string>
+    <string name="average_rated">top_rated</string>
+    <string name="sql_failed">SQL operation failed</string>
+    <string name="favorites">Favorites</string>
+    <string name="favoriteCond">Favorites</string>
+    <string name="menu_choice">MENU_CHOICE</string>
+    <string name="sql_operation">SQL_OPERATION</string>
+    <string name="put_extra_movie_id">MOVIE_ID</string>
+    <string name="put_extra_url">URI</string>
+    <string name="sql_oper">Detail SQL operation failed</string>
 </resources>

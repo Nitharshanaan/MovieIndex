@@ -23,14 +23,32 @@ import javax.net.ssl.HttpsURLConnection;
 public class NetworkUtil {
 
     public static final String QUERY_KEY = "api_key";
-    public static final String QUERY_SORT = "sort_by";
+    public final static String BASE_URL = "https://api.themoviedb.org/3/movie/";
 
     public NetworkUtil() {
     }
 
-    public static URL buildUrl(String baseUrl, String api) {
+    public static URL buildUrl(String cond, String api) {
 
-        Uri uri = Uri.parse(baseUrl).buildUpon()
+        Uri uri = Uri.parse(BASE_URL).buildUpon()
+                .appendPath(cond)
+                .appendQueryParameter(QUERY_KEY, api)
+                .build();
+
+        URL url = null;
+
+        try {
+            url = new URL(uri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
+    public static URL buildFavUrl(int id, String api) {
+
+        Uri uri = Uri.parse(BASE_URL).buildUpon()
+                .appendPath(String.valueOf(id))
                 .appendQueryParameter(QUERY_KEY, api)
                 .build();
 
@@ -69,6 +87,7 @@ public class NetworkUtil {
     }
 
     public static ArrayList<Movie> parseJSON(String json) {
+        final String ID = "id";
         final String TITLE = "title";
         final String LANGUAGE = "original_language";
         final String RATING = "vote_average";
@@ -88,6 +107,7 @@ public class NetworkUtil {
             for (int i = 0; i < numberOfMoviesFetched; i++) {
                 JSONObject movieJSON = jsonMasterArray.getJSONObject(i);
                 Movie movie = new Movie(
+                        movieJSON.getInt(ID),
                         movieJSON.getString(TITLE),
                         movieJSON.getString(LANGUAGE),
                         BASE_IMAGE_URL + movieJSON.getString(THUMBNAIL),
@@ -102,5 +122,39 @@ public class NetworkUtil {
             e.printStackTrace();
         }
         return movies;
+    }
+
+    public static Movie parseFavJSON(String json) {
+        final String ID = "id";
+        final String TITLE = "title";
+        final String LANGUAGE = "original_language";
+        final String RATING = "vote_average";
+        final String THUMBNAIL = "poster_path";
+        final String OVERVIEW = "overview";
+        final String RELEASE_DATE = "release_date";
+        final String BACKDROP = "backdrop_path";
+        final String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+        ArrayList<Movie> moviesFav = new ArrayList<>();
+
+        try {
+            JSONObject movieJSON = new JSONObject(json);
+
+            Movie movieFavs = new Movie(
+                    movieJSON.getInt(ID),
+                    movieJSON.getString(TITLE),
+                    movieJSON.getString(LANGUAGE),
+                    BASE_IMAGE_URL + movieJSON.getString(THUMBNAIL),
+                    String.valueOf(movieJSON.getInt(RATING)),
+                    movieJSON.getString(OVERVIEW),
+                    movieJSON.getString(RELEASE_DATE),
+                    BASE_IMAGE_URL + movieJSON.getString(BACKDROP)
+            );
+
+            return movieFavs;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 }

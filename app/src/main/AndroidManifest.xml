@@ -18,6 +18,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MovieDetail"></activity>
+
+        <provider
+            android:name=".data.MovieProvider"
+            android:authorities="com.nitharshanaan.android.movieindex.data.MovieProvider"
+            android:exported="false" />
     </application>
 
 </manifest>
